@@ -43,6 +43,9 @@
 	        						<td>{{person.telefono}}</td>
 	        						<td>{{person.email}}</td>
 	        						<td>{{person.direccion}}</td>
+	        						<td>
+										<button class="btn btn-danger" ng-click="delete(person.id)" ng-confirm-click="Esta seguro que desea eliminar este elemento?">Eliminar<span class="glyphicon glyphicon-trash"></span></button>
+									</td>
 		    					</tr>
 							</tbody>
 						</table>
@@ -57,5 +60,7 @@
 	<script src="js/angular.min.js"></script>
  	<script src="js/scripts.js"></script>
  	<script src="js/contact_service.js"></script>
+ 	<script src="directives/ng-confirm-click.js"></script>
+ 	<script src="directives/ng-confirm-edit-click.js"></script>
 </body>
 </html>
