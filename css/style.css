@@ -41,7 +41,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 	width: 100%;
 }
 .panel-body{
-	min-height: 500px;
+	min-height: 1000px;
 	width: 100%;
 
 }

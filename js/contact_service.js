@@ -3,14 +3,22 @@
 app.factory( 'ContactService', ['$http', function($http){
  
  return{
-     recuperarContactos:function()
+    eliminarContacto: function(id)
      {
-        return $http.get('http://localhost:1337/163.172.218.124/pwf/rest/agenda'); 
+     	return $http.delete('http://163.172.218.124/pwf/rest/agenda/'+id); 
      },
-     eliminarContacto: function(id)
+     todosContactos:function(inicio, cantidad,filtro)
      {
-     	return $http.delete('http://localhost:1337/163.172.218.124/pwf/rest/agenda/'+id); 
-     },
+     	if (filtro==null)
+     	{
+     		return $http.get('http://163.172.218.124/pwf/rest/agenda?inicio='+inicio+'&cantidad='+cantidad); 
+     	}
+     	else
+     	{
+     		return $http.get('http://163.172.218.124/pwf/rest/agenda?inicio='+inicio+'&cantidad='+cantidad+'&filtro='+filtro); 
+     	}
+
+     }
  }
  
 }]);

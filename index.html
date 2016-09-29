@@ -22,7 +22,7 @@
 			<div class="panel-heading"><h4>Mis Contactos</h4></div>
     			<div class="panel-body" style="height:100%">
     				<div class="wrapper">
-						<label>BUSCAR: <input ng-model="buscarOcurrencias"></label>
+						<label>BUSCAR: <input ng-model="filtro"></label><input type="button" value="Buscar" ng-click="cargarContactos()">
 						<table align="center">
 							<tbody>
 	    						<tr>
@@ -33,9 +33,9 @@
 	        						<th>Telefono</th>
 	        						<th>Email</th>
 	        						<th>Direccion</th>
-									<th colspan="3">Acciones</th>
+									<th colspan="2">Acciones</th>
 	    						</tr>
-	    						<tr ng-repeat="person in contactos  | filter:buscarOcurrencias |orderBy: id">
+	    						<tr ng-repeat="person in contactos |orderBy: id">
 	        						<td>{{person.id}}</td>
 	        						<td>{{person.nombre}}</td>
 	        						<td>{{person.apellido}}</td>
@@ -44,12 +44,19 @@
 	        						<td>{{person.email}}</td>
 	        						<td>{{person.direccion}}</td>
 	        						<td>
-										<button class="btn btn-danger" ng-click="delete(person.id)" ng-confirm-click="Esta seguro que desea eliminar este elemento?">Eliminar<span class="glyphicon glyphicon-trash"></span></button>
+										<button class="btn btn-danger" ng-click="delete(person.id)" ng-confirm-click="Esta seguro que desea eliminar este elemento?">Eliminar<span class="glyphicon glyphicon-trash"></span></button></button>
 									</td>
+									
 		    					</tr>
+
 							</tbody>
+		    					<button type="button" class="btn btn-info btn-md active" ng-click="previousPage()"  style="float: center;">Anterior<span class="glyphicon glyphicon-menu-left"></span></button>
+								<button type="button" class="btn btn-info btn-md active" ng-click="nextPage()" style="float: center;">Siguiente<span class="glyphicon glyphicon-menu-right"></span></button>
+								
+								
 						</table>
 					</div>
+					
 
 					
     		</div>
