@@ -87,6 +87,39 @@ app.controller("ContactContr",function($http,$scope,ContactService)
         
         });      
 };
+  $scope.editar=function(id)
+  {
+    /*recorremos nuestra lista para obtener nuestro registro*/
+    for (var i=$scope.contactos.length-1; i>=0; i--) {
+   
+      if ( $scope.contactos[i].id ==id) 
+      {
+          $scope.datosModelo.id=$scope.contactos[i].id;
+          $scope.datosModelo.nombre=$scope.contactos[i].nombre;
+          $scope.datosModelo.apellido=$scope.contactos[i].apellido;
+          $scope.datosModelo.alias=$scope.contactos[i].alias;
+          $scope.datosModelo.email=$scope.contactos[i].email;
+          $scope.datosModelo.telefono=$scope.contactos[i].telefono;
+          $scope.datosModelo.direccion=$scope.contactos[i].direccion;
+          $scope.datosModelo.fechacreacion=$scope.contactos[i].fechacreacion;
+      }
+    }
+
+  };
+  $scope.GuardarEdicion=function(id,data)
+  {
+      ContactService.actualizarContacto(id,data).then(function(response)
+        {
+            $scope.cargarContactos();
+            alert("Contacto actualizado con exito");
+            /*procedemos a llamar a llamar a la pantalla de editar contacto*/
+            $scope.editar(response.data.id);
+        }, function(response){
+
+            alert("El Contacto no pudo ser actualizado");
+        
+        });     
+  };
 });
 
 

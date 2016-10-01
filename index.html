@@ -45,6 +45,7 @@
 	        						<td>{{person.direccion}}</td>
 	        						<td>
 										<button class="btn btn-danger" ng-click="delete(person.id)" ng-confirm-click="Esta seguro que desea eliminar este elemento?">Eliminar<span class="glyphicon glyphicon-trash"></span></button></button>
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editForm" ng-click="editar(person.id)"  >Editar Contacto<span class="glyphicon glyphicon-edit"></span></button>
 									</td>
 									
 		    					</tr>
@@ -110,6 +111,64 @@
 							</div>
 						</div>
 					</div>
+					<div class="modal fade" id="editForm" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+								 	<div class="modal-header">
+									 	<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h2>Editar Contacto</h2>
+									</div>
+									<form name="personForm" novalidate>
+										<div class="modal-body">
+												<label>Id</label>
+												<input class="form-control" type="text"  ng-model="datosModelo.id" disabled></input>
+						
+												</br>
+												<label>Nombre</label>
+												<input class="form-control" type="text" name="nombre" ng-model="datosModelo.nombre" required></input>
+												<span style="color:red" ng-show="personForm.nombre.$invalid">
+													<span ng-show="personForm.nombre.$error.required">El nombre es requerido.</span>
+												</span>
+												</br>
+												<label>Apellido</label>
+												<input class="form-control" type="text" name="apellido" ng-model="datosModelo.apellido" required></input>
+												<span style="color:red" ng-show="personForm.apellido.$invalid">
+													<span ng-show="personForm.apellido.$error.required">El apellido es requerido.</span>
+												</span>
+												</br>
+												<label>Correo Electrónico</label>
+												<input class="form-control"  type="email" name="mail" ng-model="datosModelo.email" required></input>
+												<span style="color:red" ng-show="personForm.mail.$invalid">
+												<span ng-show="personForm.mail.$error.required">
+			 										El email es requerido</span>
+			 										<span ng-show="personForm.mail.$error.email">
+													Ingrese un formato de email válido</span>
+		 										</span>
+		 										</br>
+		 										<label>Alias</label>
+		 										<input class="form-control"  type="text" name="alias" ng-model="datosModelo.alias" ></input>
+		 										</br>
+		 										<label>Telefono</label>
+		 										<input class="form-control"  type="numeric" name="telefono" ng-model="datosModelo.telefono" required></input>
+		 										<span style="color:red" ng-show="personForm.telefono.$invalid">
+													<span ng-show="personForm.telefono.$error.required">El telefono es requerido.</span>
+												</span>
+												</br>
+												<label>Direccion</label>
+												<input class="form-control"  type="text" name="direccion" ng-model="datosModelo.direccion"></input>
+												<label>Fecha de Creacion</label>
+												<input class="form-control" type="text"  ng-model="datosModelo.fechacreacion" disabled></input>
+												
+											<div class="modal-footer">
+												<button class="btn btn-success" type="submit" ng-click="GuardarEdicion(datosModelo.id,datosModelo)" ng-disabled="personForm.$invalid" ng-confirm-edit-click="Desea guardar los cambios?" data-dismiss="modal" >Guardar Edicion</button>
+												<button class="btn btn-default" type="button"   data-dismiss="modal">Cancelar</button>
+											</div>
+
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
 					
 					
 
@@ -124,5 +183,12 @@
  	<script src="js/contact_service.js"></script>
  	<script src="directives/ng-confirm-click.js"></script>
  	<script src="directives/ng-confirm-edit-click.js"></script>
+ 	<script type="text/javascript">
+    $('#guardar').click(function(){
+   setTimeout(function(){
+       $('#editForm').modal('show');
+   }, 2000);
+	});
+</script>
 </body>
 </html>
