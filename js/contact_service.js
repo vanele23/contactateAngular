@@ -22,7 +22,11 @@ app.factory( 'ContactService', ['$http', function($http){
      actualizarContacto: function(id, data)
      {
      	return $http.put('http://163.172.218.124/pwf/rest/agenda/'+id,data); 
-     }
+     },
+     crearContacto:function(data){
+          return $http.post('http://163.172.218.124/pwf/rest/agenda', data); 
+            
+        },
  }
  
 }]);

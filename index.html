@@ -56,6 +56,61 @@
 								
 						</table>
 					</div>
+					</br>
+					<center><button class="btn btn-success" data-toggle="modal" data-target="#contacform">Agregar Contacto
+					<span class="glyphicon glyphicon-plus"></span></button></button></center>
+					<div class="modal fade" id="contacform" role="dialog">
+						<div class="modal-dialog">
+							<div class="modal-content">
+			 					<div class="modal-header">
+				 					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				 					<h2>Añadir Contacto</h2>
+								</div>
+
+								<form name="contactForm" novalidate>
+									<div class="modal-body">
+
+										Nombre
+										<input class="form-control" type="text" name="nombre" ng-model="nuevoContacto.nombre" required></input>
+										<span style="color:red" ng-show="contactForm.nombre.$invalid">
+			 								<span ng-show="contactForm.nombre.$error.required">El nombre es requerido.</span>
+										</span>
+										</br>
+										Apellido <input class="form-control" type="text" name="apellido" ng-model="nuevoContacto.apellido" required></input>
+										<span style="color:red" ng-show="contactForm.apellido.$invalid">
+											<span ng-show="contactForm.apellido.$error.required">El apellido es requerido.</span>
+										</span>
+		 								</br>
+		 								Alias  <input class="form-control"  type="text" name="alias" ng-model="nuevoContacto.alias" ></input>
+		 								</br>
+		 								Telefono<input class="form-control"  type="number" name="telefono" ng-model="nuevoContacto.telefono" required></input>
+		 								<span style="color:red" ng-show="contactForm.telefono.$invalid">
+											<span ng-show="contactForm.telefono.$error.required">El telefono es requerido.</span>
+										</span>
+										</br>
+										Correo Electrónico <input class="form-control"  type="email" name="email" ng-model="nuevoContacto.email" required></input>
+										<span style="color:red" ng-show="contactForm.email.$invalid">
+											<span ng-show="contactForm.email.$error.required">
+			 								El email es requerido</span>
+			 								<span ng-show="contactForm.email.$error.email">
+										Ingrese un formato de email válido</span>
+		 								</span>
+										</br>
+
+										Direccion<input class="form-control"  type="text" name="direccion" ng-model="nuevoContacto.direccion"></input>
+		 							
+
+										<div class="modal-footer">
+											<button class="btn btn-success" type="submit"   id="guardar" ng-click="Guardar()" ng-disabled="contactForm.$invalid"  data-toggle="modal" data-dismiss="modal" >Crear</button>
+											<button class="btn btn-default" type="button"   data-dismiss="modal">Cancelar</button>
+										</div>
+									</div>
+
+								</form>
+							</div>
+						</div>
+					</div>
+					
 					
 
 					
