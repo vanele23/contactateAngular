@@ -75,7 +75,7 @@ app.controller("ContactContr",function($http,$scope,ContactService)
   ContactService.crearContacto(data).then(function(response)
         {
             $scope.contactos.push(response.data);
-            /*$scope.editar(response.data.id);*/
+            $scope.editar(response.data.id);
             $scope.cargarContactos();
             
             alert("Contacto creado con exito");
