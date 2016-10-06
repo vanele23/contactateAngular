@@ -3,7 +3,7 @@ var app=angular.module("myApp",[]);
 app.controller("ContactContr",function($http,$scope,ContactService)
 {
   $scope.inicio=0;
-  $scope.cantidad=5;
+  $scope.cantidad=20;
   $scope.filtro=null;
   $scope.cargarContactos= function(){
     ContactService.todosContactos($scope.inicio,$scope.cantidad,$scope.filtro).then(function(response){
