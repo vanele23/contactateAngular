@@ -11,25 +11,25 @@ app.factory( 'ContactService', ['$http', function($http){
      {
      	if (filtro==null)
      	{
-     		return $http.get('https://163.172.218.124/pwf/rest/agenda?inicio='+inicio+'&cantidad='+cantidad); 
+     		return $http.get('https://desa03.konecta.com.py/pwf/rest/agenda?inicio='+inicio+'&cantidad='+cantidad); 
      	}
      	else
      	{
-     		return $http.get('https://163.172.218.124/pwf/rest/agenda?inicio='+inicio+'&cantidad='+cantidad+'&filtro='+filtro); 
+     		return $http.get('https://desa03.konecta.com.py/pwf/rest/agenda?inicio='+inicio+'&cantidad='+cantidad+'&filtro='+filtro); 
      	}
 
      },
      actualizarContacto: function(id, data)
      {
-     	return $http.put('https://163.172.218.124/pwf/rest/agenda/'+id,data); 
+     	return $http.put('https://desa03.konecta.com.py/pwf/rest/agenda/'+id,data); 
      },
      crearContacto:function(data){
-          return $http.post('https://163.172.218.124/pwf/rest/agenda', data); 
+          return $http.post('https://desa03.konecta.com.py/pwf/rest/agenda', data); 
             
         },
      actualizarContacto: function(id, data)
      {
-          return $http.put('https://163.172.218.124/pwf/rest/agenda/'+id,data); 
+          return $http.put('https://desa03.konecta.com.py/pwf/rest/agenda/'+id,data); 
      },
  }
  
