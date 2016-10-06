@@ -2,8 +2,8 @@
 var app=angular.module("myApp",[]);
 app.controller("ContactContr",function($http,$scope,ContactService)
 {
-   $scope.inicio=0;
-  $scope.cantidad=20;
+  $scope.inicio=0;
+  $scope.cantidad=10;
   $scope.filtro=null;
   $scope.cargarContactos= function(){
     ContactService.todosContactos($scope.inicio,$scope.cantidad,$scope.filtro).then(function(response){
@@ -33,6 +33,16 @@ app.controller("ContactContr",function($http,$scope,ContactService)
         $scope.cargarContactos();
     }
   };
+  $scope.firstPage=function()
+  {
+    $scope.inicio=0;
+    $scope.cargarContactos();
+  },
+  $scope.lastPage=function()
+  {
+    $scope.inicio=$scope.pages-$scope.cantidad;
+    $scope.cargarContactos();
+  },
   $scope.cargarContactos();
   $scope.delete = function (id) {
         ContactService.eliminarContacto(id).then(function(response)

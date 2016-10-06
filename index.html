@@ -1,7 +1,7 @@
 <html ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
-	<title>Agenda de Contactos</title>
+	<title>Contactate-Mi Agenda de Contactos</title>
 	<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/bootstrap/css/bootstrap-theme.css">
@@ -19,7 +19,7 @@
 <body  data-ng-controller="ContactContr" ng-init="cargarContactos()">
 	<div class="container">
 		<div class="panel panel-primary">
-			<div class="panel-heading"><h4>Mis Contactos</h4></div>
+			<div class="panel-heading"><h4>Contactate</h4></div>
     			<div class="panel-body" style="height:100%">
     				<div class="wrapper">
 						<label>BUSCAR: <input ng-model="filtro"></label><input type="button" value="Buscar" ng-click="cargarContactos()">
@@ -44,15 +44,17 @@
 	        						<td>{{person.email}}</td>
 	        						<td>{{person.direccion}}</td>
 	        						<td>
-										<button class="btn btn-danger" ng-click="delete(person.id)" ng-confirm-click="Esta seguro que desea eliminar este elemento?">Eliminar<span class="glyphicon glyphicon-trash"></span></button></button>
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editForm" ng-click="editar(person.id)"  >Editar Contacto<span class="glyphicon glyphicon-edit"></span></button>
+										<button class="btn btn-danger" ng-click="delete(person.id)" ng-confirm-click="Esta seguro que desea eliminar este elemento?"><span class="glyphicon glyphicon-trash"></span></button></button>
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editForm" ng-click="editar(person.id)"  ><span class="glyphicon glyphicon-edit"></span></button>
 									</td>
 									
 		    					</tr>
 
 							</tbody>
-		    					<button type="button" class="btn btn-info btn-md active" ng-click="previousPage()"  style="float: center;">Anterior<span class="glyphicon glyphicon-menu-left"></span></button>
-								<button type="button" class="btn btn-info btn-md active" ng-click="nextPage()" style="float: center;">Siguiente<span class="glyphicon glyphicon-menu-right"></span></button>
+								<button type="button" class="btn btn-info btn-md active" ng-click="firstPage()"  style="float: center;">Primera Pagina<span class="glyphicon glyphicon-fast-backward"></span></button>
+		    					<button type="button" class="btn btn-info btn-md active" ng-click="previousPage()"  style="float: center;">Anterior<span class="glyphicon glyphicon-backward"></span></button>
+								<button type="button" class="btn btn-info btn-md active" ng-click="nextPage()" style="float: center;">Siguiente<span class="glyphicon glyphicon-forward"></span></button>
+								<button type="button" class="btn btn-info btn-md active" ng-click="nextPage()" style="float: center;">Ultima Página<span class="glyphicon glyphicon-fast-forward"></span></button>
 								
 								
 						</table>
