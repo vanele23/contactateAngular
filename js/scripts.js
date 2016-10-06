@@ -20,7 +20,7 @@ app.controller("ContactContr",function($http,$scope,ContactService)
     });
   };
   $scope.nextPage = function() {
-    if ($scope.inicio < $scope.pages) {
+    if ($scope.inicio+$scope.cantidad < $scope.pages) {
         $scope.inicio=$scope.inicio+$scope.cantidad;
         $scope.cargarContactos();
     }
@@ -42,7 +42,8 @@ app.controller("ContactContr",function($http,$scope,ContactService)
   },
   $scope.lastPage=function()
   {
-    $scope.inicio=$scope.pages-$scope.cantidad;
+    $scope.inicio=0;
+    $scope.inicio=$scope.pages-($scope.pages%$scope.cantidad);
     $scope.cargarContactos();
   },
   $scope.cargarContactos();
