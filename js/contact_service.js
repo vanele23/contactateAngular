@@ -5,7 +5,7 @@ app.factory( 'ContactService', ['$http', function($http){
  return{
     eliminarContacto: function(id)
      {
-     	return $http.delete('https://163.172.218.124/pwf/rest/agenda/'+id); 
+     	return $http.delete('https://desa03.konecta.com.py/pwf/rest/agenda/'+id); 
      },
      todosContactos:function(inicio, cantidad,filtro)
      {
