@@ -22,9 +22,9 @@ app.controller("ContactContr",function($http,$scope,ContactService)
   $scope.nextPage = function() {
     if ($scope.inicio < $scope.pages) {
         $scope.inicio=$scope.inicio+$scope.cantidad;
-
         $scope.cargarContactos();
     }
+    
   };
             
   $scope.previousPage = function() {
@@ -35,8 +35,10 @@ app.controller("ContactContr",function($http,$scope,ContactService)
   };
   $scope.firstPage=function()
   {
+    if ($scope.inicio > 0) {
     $scope.inicio=0;
     $scope.cargarContactos();
+    }
   },
   $scope.lastPage=function()
   {
