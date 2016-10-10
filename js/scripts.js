@@ -120,6 +120,37 @@ app.controller("ContactContr",function($http,$scope,ContactService)
         
         });     
   };
+   $scope.datos = {
+            "id": 0,
+            "nombre": "",
+            "apellido": "",
+            "alias":"",
+            "telefono":"",
+            "email":"",
+            "direccion":"",
+            "fechaCreacion":""
+
+        };
+ 
+/*este debajo de la funcion GuardarEdicion*/
+$scope.detalles=function(id)
+  {
+      ContactService.verContacto(id).then(function(response)
+      {
+          $scope.datos.id=response.data.id;
+          $scope.datos.nombre=response.data.nombre;
+          $scope.datos.apellido=response.data.apellido;
+          $scope.datos.alias=response.data.alias;
+          $scope.datos.email=response.data.email;
+          $scope.datos.telefono=response.data.telefono;
+          $scope.datos.direccion=response.data.direccion;
+          $scope.datos.fechacreacion=response.data.fechacreacion;
+         
+      }, function(response)
+      {
+        alert("El Contacto no pudo ser cargado, intentelo mas tarde");
+      });
+  };
 });
 
 

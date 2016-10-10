@@ -31,6 +31,10 @@ app.factory( 'ContactService', ['$http', function($http){
      {
           return $http.put('http://163.172.218.124/pwf/rest/agenda/'+id,data); 
      },
+     verContacto:function(id)
+     {
+          return $http.get('http://163.172.218.124/pwf/rest/agenda/'+id); 
+     }
  }
  
 }]);

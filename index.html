@@ -1,7 +1,7 @@
 <html ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
-	<title>Agenda de Contactos</title>
+	<title>Contactate - Tu lista de contactos</title>
 	<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/bootstrap/css/bootstrap-theme.css">
@@ -46,6 +46,7 @@
 	        						<td>
 										<button class="btn btn-danger" ng-click="delete(person.id)" ng-confirm-click="Esta seguro que desea eliminar este elemento?">Eliminar<span class="glyphicon glyphicon-trash"></span></button></button>
 										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editForm" ng-click="editar(person.id)"  >Editar Contacto<span class="glyphicon glyphicon-edit"></span></button>
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailForm" ng-click="detalles(person.id)">Ver Contacto<span class="glyphicon glyphicon-tasks"></span></button>
 									</td>
 									
 		    					</tr>
@@ -169,11 +170,58 @@
 								</div>
 							</div>
 						</div>
-					
+								
+						<div class="modal fade" id="detailForm" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+								 	<div class="modal-header">
+									 	<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h2>Detalles</h2>
+									</div>
+									<form name="personForm" novalidate>
+										<div class="modal-body">
+												<label>Id</label>
+												<input class="form-control" type="text"  ng-model="datos.id" disabled></input>
+						
+												</br>
+												<label>Nombre</label>
+												<input class="form-control" type="text" name="nombre" ng-model="datos.nombre" disabled></input>
+												
+												</br>
+												<label>Apellido</label>
+												<input class="form-control" type="text" name="apellido" ng-model="datos.apellido" disabled></input>
+												</br>
+												<label>Correo Electrónico</label>
+												<input class="form-control"  type="email" name="mail" ng-model="datos.email" disabled></input>
+		 										</br>
+		 										<label>Alias</label>
+		 										<input class="form-control"  type="text" name="alias" ng-model="datos.alias" disabled></input>
+		 										</br>
+		 										<label>Telefono</label>
+		 										<input class="form-control"  type="numeric" name="telefono" ng-model="datos.telefono" disabled></input>
+												</br>
+												<label>Direccion</label>
+												<input class="form-control"  type="text" name="direccion" ng-model="datosModelo.direccion" disabled></input>
+												<label>Fecha de Creacion</label>
+												<input class="form-control" type="text"  ng-model="datos.fechacreacion" disabled></input>
+												
+											<div class="modal-footer">
+												<button class="btn btn-danger" ng-click="delete(datos.id)" ng-confirm-click="Esta seguro que desea eliminar este elemento?" data-toggle="modal" data-dismiss="modal">Eliminar<span class="glyphicon glyphicon-trash"></span></button></button>
+												<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editForm" ng-click="editar(datos.id)" data-toggle="modal" >Editar Contacto<span class="glyphicon glyphicon-edit"></span></button>
+												<button class="btn btn-default" type="button"   data-dismiss="modal">Cancelar</button>
+											
+											</div>
+
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
 					
 
 					
     		</div>
+
     	
     		<div class="panel-footer">Desarrollado por Vanessa Leguizamon y Juanry Britez</div>
   		</div>
