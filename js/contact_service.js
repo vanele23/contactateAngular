@@ -24,7 +24,7 @@ app.factory( 'ContactService', ['$http', function($http){
      	return $http.put('https://desa03.konecta.com.py/pwf/rest/agenda/'+id,data); 
      },
      crearContacto:function(data){
-          return $http.post('https://desa03.konecta.com.py/pwf/rest/agenda', data); 
+          return $http.post('https://desa03.konecta.com.py/pwf/rest/agenda/', data); 
             
         },
      actualizarContacto: function(id, data)
