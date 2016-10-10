@@ -2,7 +2,7 @@
 var app=angular.module("myApp",[]);
 app.controller("ContactContr",function($http,$scope,ContactService)
 {
-   $scope.inicio=0;
+  $scope.inicio=0;
   $scope.cantidad=20;
   $scope.filtro=null;
   $scope.cargarContactos= function(){
@@ -20,11 +20,11 @@ app.controller("ContactContr",function($http,$scope,ContactService)
     });
   };
   $scope.nextPage = function() {
-    if ($scope.inicio < $scope.pages) {
+    if ($scope.inicio+$scope.cantidad < $scope.pages) {
         $scope.inicio=$scope.inicio+$scope.cantidad;
-
         $scope.cargarContactos();
     }
+    
   };
             
   $scope.previousPage = function() {
@@ -33,6 +33,19 @@ app.controller("ContactContr",function($http,$scope,ContactService)
         $scope.cargarContactos();
     }
   };
+  $scope.firstPage=function()
+  {
+    if ($scope.inicio > 0) {
+    $scope.inicio=0;
+    $scope.cargarContactos();
+    }
+  },
+  $scope.lastPage=function()
+  {
+    $scope.inicio=0;
+    $scope.inicio=$scope.pages-($scope.pages%$scope.cantidad);
+    $scope.cargarContactos();
+  },
   $scope.cargarContactos();
   $scope.delete = function (id) {
         ContactService.eliminarContacto(id).then(function(response)
