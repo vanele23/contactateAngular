@@ -33,7 +33,7 @@ app.factory( 'ContactService', ['$http', function($http){
      },
      verContacto:function(id)
      {
-          return $http.put('https://desa03.konecta.com.py/pwf/rest/agenda/'+id,data); 
+          return $http.get('https://desa03.konecta.com.py/pwf/rest/agenda/'+id); 
      }
  }
  
