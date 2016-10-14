@@ -40,15 +40,18 @@
 								<a class="waves-effect waves-light btn" ng-click="cargarContactos()">Buscar</a>
 							</div>
 						</div>
-						<div class="row">
-      							 <div class="col s4"></div>
-       								<div class="col s2"><button type="button" class="btn btn-info btn-md active" ng-click="previousPage()"  style="float: center;">Anterior<span class="glyphicon glyphicon-menu-left"></span></button>
-       							</div>
-      							 <div class="col s4">
+						<div class="row" align="center">
+       								<button type="button" class="btn btn-info btn-md active" ng-click="firstPage()"  style="float: center;">Primera Página<span class="glyphicon glyphicon-menu-left"></span></button>
+       								
+       								<button type="button" class="btn btn-info btn-md active" ng-click="previousPage()"  style="float: center;">Anterior<span class="glyphicon glyphicon-menu-left"></span></button>
+       								
+      								
         							 <button type="button" class="btn btn-info btn-md active" ng-click="nextPage()" style="float: center;">Siguiente<span class="glyphicon glyphicon-menu-right"></span></button>
-       							</div>
-      								<div class="col s4"></div>
-     							 </div>		
+       								
+      								 
+        							 	<button type="button" class="btn btn-info btn-md active" ng-click="lastPage()" style="float: center;">Ùltima Pàgina<span class="glyphicon glyphicon-menu-right"></span></button>
+       								
+       					</div>	
 						<table align="center" class="striped">
 							<tbody>
 	    						<tr>
